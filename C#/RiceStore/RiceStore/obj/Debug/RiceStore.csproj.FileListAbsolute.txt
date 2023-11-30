@@ -1,0 +1,7 @@
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\bin\Debug\RiceStore.exe.config
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\bin\Debug\RiceStore.exe
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\bin\Debug\RiceStore.pdb
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\obj\Debug\RiceStore.csproj.AssemblyReference.cache
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\obj\Debug\RiceStore.csproj.CoreCompileInputs.cache
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\obj\Debug\RiceStore.exe
+D:\OOP\RiceStore\C#\RiceStore\RiceStore\obj\Debug\RiceStore.pdb
