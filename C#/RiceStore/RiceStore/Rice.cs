@@ -12,20 +12,13 @@ namespace RiceStore
         private string name;
         private string status;
         private int unitPrice;
-        
-        private string supplierId;
-        private Suplier suplier;
-        private string categoryId;
-        private RiceCategory category;
 
-        public Rice(string id, string name, string status, int unitPrice, string supplierId, string categoryId)
+        public Rice(string id, string name, string status, int unitPrice)
         {
             this.id = id;
             this.name = name;
             this.status = status;
             this.unitPrice = unitPrice;
-            this.supplierId = supplierId;
-            this.categoryId = categoryId;
         }
 
         public string getId()
@@ -59,38 +52,6 @@ namespace RiceStore
         public void setUnitPrice(int unitPrice)
         {
             this.unitPrice = unitPrice;
-        }
-        public string getSupplierId()
-        {
-            return supplierId;
-        }
-        public void setSupplierId(string supplierId)
-        {
-            this.supplierId = supplierId;
-        }
-        public Suplier getSuplier()
-        {
-            return suplier;
-        }
-        public void setSuplier(Suplier suplier)
-        {
-            this.suplier = suplier;
-        }
-        public string getCategoryId()
-        {
-            return categoryId;
-        }
-        public void setCategoryId(string categoryId)
-        {
-            this.categoryId = categoryId;
-        }
-        public RiceCategory getCategory()
-        {
-            return category;
-        }
-        public void setCategory(RiceCategory category)
-        {
-            this.category = category;
         }
     }
 }

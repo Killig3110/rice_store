@@ -52,7 +52,6 @@
     <Compile Include="ReceptNote.cs" />
     <Compile Include="ReceptNoteDetail.cs" />
     <Compile Include="Rice.cs" />
-    <Compile Include="RiceCategory.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Suplier.cs" />
   </ItemGroup>
