@@ -43,6 +43,16 @@ namespace RiceStore
             Console.WriteLine("_____________________________________");
             cau5();
             Console.WriteLine("_____________________________________");
+            cau6();
+            Console.WriteLine("_____________________________________");
+            cau7();
+            Console.WriteLine("_____________________________________");
+            cau8();
+            Console.WriteLine("_____________________________________");
+            cau9();
+            Console.WriteLine("_____________________________________");
+            cau10();
+            Console.WriteLine("_____________________________________");
             Console.ReadLine();
 
         }
@@ -80,6 +90,14 @@ namespace RiceStore
             rices.Add(new Rice("R019", "Gạo Tám Phước Lộ", "Còn hàng", 65000, "S001", "RC02"));
             rices.Add(new Rice("R020", "Gạo ST25", "Còn hàng", 70000, "S002", "RC02"));
 
+            foreach (var item in rices)
+            {
+                if (item.getCategoryId() == "RC01")
+                {
+                    item.setUnitPrice((int)(item.getUnitPrice() * 1.2));
+                }
+            }    
+
             customerCategories.Add(new CustomerCategory("CC01", "Thân Thiết"));
             customerCategories.Add(new CustomerCategory("CC02", "Bình Thường"));
 
@@ -113,22 +131,32 @@ namespace RiceStore
             bills.Add(new Bill("B013", new DateTime(2021, 05, 13), "C003", "ST001"));
             bills.Add(new Bill("B014", new DateTime(2021, 05, 14), "C004", "ST002"));
             bills.Add(new Bill("B015", new DateTime(2021, 05, 15), "C005", "ST003"));
+            bills.Add(new Bill("B016", new DateTime(2021, 05, 16), "C006", "ST001"));
+            bills.Add(new Bill("B017", new DateTime(2021, 05, 17), "C007", "ST002"));
+            bills.Add(new Bill("B018", new DateTime(2021, 05, 18), "C008", "ST003"));
+            bills.Add(new Bill("B019", new DateTime(2021, 05, 19), "C009", "ST001"));
+            bills.Add(new Bill("B020", new DateTime(2021, 05, 20), "C010", "ST002"));
 
             billDetails.Add(new BillDetail(10, "B001", "R001"));
             billDetails.Add(new BillDetail(20, "B002", "R002"));
             billDetails.Add(new BillDetail(30, "B003", "R003"));
-            billDetails.Add(new BillDetail(40, "B004", "R004"));
-            billDetails.Add(new BillDetail(50, "B005", "R005"));
-            billDetails.Add(new BillDetail(60, "B006", "R006"));
-            billDetails.Add(new BillDetail(70, "B007", "R007"));
-            billDetails.Add(new BillDetail(80, "B008", "R008"));
-            billDetails.Add(new BillDetail(90, "B009", "R009"));
-            billDetails.Add(new BillDetail(100, "B010", "R010"));
-            billDetails.Add(new BillDetail(110, "B011", "R011"));
-            billDetails.Add(new BillDetail(120, "B012", "R012"));
-            billDetails.Add(new BillDetail(130, "B013", "R013"));
-            billDetails.Add(new BillDetail(140, "B014", "R014"));
-            billDetails.Add(new BillDetail(150, "B015", "R015"));
+            billDetails.Add(new BillDetail(20, "B004", "R004"));
+            billDetails.Add(new BillDetail(35, "B005", "R005"));
+            billDetails.Add(new BillDetail(10, "B006", "R006"));
+            billDetails.Add(new BillDetail(45, "B007", "R007"));
+            billDetails.Add(new BillDetail(71, "B008", "R008"));
+            billDetails.Add(new BillDetail(65, "B009", "R009"));
+            billDetails.Add(new BillDetail(55, "B010", "R010"));
+            billDetails.Add(new BillDetail(15, "B011", "R011"));
+            billDetails.Add(new BillDetail(35, "B012", "R012"));
+            billDetails.Add(new BillDetail(50, "B013", "R013"));
+            billDetails.Add(new BillDetail(75, "B014", "R014"));
+            billDetails.Add(new BillDetail(100, "B015", "R015"));
+            billDetails.Add(new BillDetail(10, "B016", "R016"));
+            billDetails.Add(new BillDetail(20, "B017", "R017"));
+            billDetails.Add(new BillDetail(30, "B018", "R018"));
+            billDetails.Add(new BillDetail(20, "B019", "R019"));
+            billDetails.Add(new BillDetail(35, "B020", "R020"));
 
             receptNotes.Add(new ReceptNote("RN001", new DateTime(2021, 05, 01), "Đảm bảo chất lượng", "S001", "ST001"));
             receptNotes.Add(new ReceptNote("RN002", new DateTime(2021, 05, 02), "Đảm bảo chất lượng", "S002", "ST002"));
@@ -151,33 +179,38 @@ namespace RiceStore
             receptNotes.Add(new ReceptNote("RN019", new DateTime(2021, 05, 19), "Đảm bảo chất lượng", "S001", "ST001"));
             receptNotes.Add(new ReceptNote("RN020", new DateTime(2021, 05, 20), "Đảm bảo chất lượng", "S002", "ST002"));
 
-            receptNoteDetails.Add(new ReceptNoteDetail(45000000, 10, "RN001", "R001"));
-            receptNoteDetails.Add(new ReceptNoteDetail(35000000, 20, "RN002", "R002"));
-            receptNoteDetails.Add(new ReceptNoteDetail(25000000, 30, "RN003", "R003"));
-            receptNoteDetails.Add(new ReceptNoteDetail(30000000, 40, "RN004", "R004"));
-            receptNoteDetails.Add(new ReceptNoteDetail(40000000, 50, "RN005", "R005"));
-            receptNoteDetails.Add(new ReceptNoteDetail(50000000, 60, "RN006", "R006"));
-            receptNoteDetails.Add(new ReceptNoteDetail(55000000, 70, "RN007", "R007"));
-            receptNoteDetails.Add(new ReceptNoteDetail(60000000, 80, "RN008", "R008"));
-            receptNoteDetails.Add(new ReceptNoteDetail(65000000, 90, "RN009", "R009"));
-            receptNoteDetails.Add(new ReceptNoteDetail(70000000, 100, "RN010", "R010"));
-            receptNoteDetails.Add(new ReceptNoteDetail(45000000, 110, "RN011", "R011"));
-            receptNoteDetails.Add(new ReceptNoteDetail(35000000, 120, "RN012", "R012"));
-            receptNoteDetails.Add(new ReceptNoteDetail(25000000, 130, "RN013", "R013"));
-            receptNoteDetails.Add(new ReceptNoteDetail(30000000, 140, "RN014", "R014"));
-            receptNoteDetails.Add(new ReceptNoteDetail(40000000, 150, "RN015", "R015"));
-            receptNoteDetails.Add(new ReceptNoteDetail(50000000, 160, "RN016", "R016"));
-            receptNoteDetails.Add(new ReceptNoteDetail(55000000, 170, "RN017", "R017"));
-            receptNoteDetails.Add(new ReceptNoteDetail(60000000, 180, "RN018", "R018"));
-            receptNoteDetails.Add(new ReceptNoteDetail(65000000, 190, "RN019", "R019"));
-            receptNoteDetails.Add(new ReceptNoteDetail(70000000, 200, "RN020", "R020"));
+            receptNoteDetails.Add(new ReceptNoteDetail(100, 45000, "RN001", "R001"));
+            receptNoteDetails.Add(new ReceptNoteDetail(200, 35000, "RN002", "R002"));
+            receptNoteDetails.Add(new ReceptNoteDetail(300, 25000, "RN003", "R003"));
+            receptNoteDetails.Add(new ReceptNoteDetail(200, 30000, "RN004", "R004"));
+            receptNoteDetails.Add(new ReceptNoteDetail(350, 40000, "RN005", "R005"));
+            receptNoteDetails.Add(new ReceptNoteDetail(100, 50000, "RN006", "R006"));
+            receptNoteDetails.Add(new ReceptNoteDetail(450, 55000, "RN007", "R007"));
+            receptNoteDetails.Add(new ReceptNoteDetail(710, 60000, "RN008", "R008"));
+            receptNoteDetails.Add(new ReceptNoteDetail(650, 65000, "RN009", "R009"));
+            receptNoteDetails.Add(new ReceptNoteDetail(550, 70000, "RN010", "R010"));
+            receptNoteDetails.Add(new ReceptNoteDetail(150, 45000, "RN011", "R011"));
+            receptNoteDetails.Add(new ReceptNoteDetail(350, 35000, "RN012", "R012"));
+            receptNoteDetails.Add(new ReceptNoteDetail(500, 25000, "RN013", "R013"));
+            receptNoteDetails.Add(new ReceptNoteDetail(750, 30000, "RN014", "R014"));
+            receptNoteDetails.Add(new ReceptNoteDetail(100, 40000, "RN015", "R015"));
+            receptNoteDetails.Add(new ReceptNoteDetail(100, 45000, "RN016", "R016"));
+            receptNoteDetails.Add(new ReceptNoteDetail(200, 35000, "RN017", "R017"));
+            receptNoteDetails.Add(new ReceptNoteDetail(300, 25000, "RN018", "R018"));
+            receptNoteDetails.Add(new ReceptNoteDetail(200, 30000, "RN019", "R019"));
+            receptNoteDetails.Add(new ReceptNoteDetail(350, 40000, "RN020", "R020"));
+
+            foreach (var item in receptNoteDetails)
+            {
+                item.setUnitPrice((int)(item.getUnitPrice() * 0.8));
+            }
+                
+
         }
 
         public static void cau1()
         {
-            //in ra danh sách tên các gạo theo từng loại gạo
-
-            Console.WriteLine("Danh sách tên các gạo theo từng loại gạo");
+            Console.WriteLine("Câu 1: Danh sách tên các gạo theo từng loại gạo");
             var result = from r in rices
                          join rc in riceCategories on r.getCategoryId() equals rc.getId()
                          select new
@@ -202,32 +235,28 @@ namespace RiceStore
 
         public static void cau2()
         {
-            //in ra danh sách rice có giá bán lớn hơn 50.000đ
-            Console.WriteLine("Danh sách rice có giá bán lớn hơn 50.000đ");
+            Console.WriteLine("Câu 2: Danh sách gạo có giá bán lớn hơn 50.000đ");
             var result = from r in rices
+                         join rc in riceCategories on r.getCategoryId() equals rc.getId()
                          where r.getUnitPrice() > 50000
                          select new
                          {
                              RiceName = r.getName(),
+                             RiceCategoryName = rc.getName(),
                              RicePrice = r.getUnitPrice()
                          };
             foreach (var item in result)
             {
-                Console.WriteLine("Giá bán: " + item.RicePrice);
-                foreach (var r in rices)
-                {
-                    if (item.RiceName == r.getName())
-                    {
-                        Console.WriteLine("Tên gạo: " + r.getName());
-                    }
-                }
+                Console.WriteLine("Tên gạo: " + item.RiceName);
+                Console.WriteLine("Loại gạo: " + item.RiceCategoryName);
+                Console.WriteLine("Giá bán: " + item.RicePrice + " đồng.");
             }
+            
         }
 
         public static void cau3()
         {
-            //in ra tổng số lượng gạo ứng với mỗi tên gạo, nếu trùng tên thì cộng dồn số lượng
-            Console.WriteLine("Danh sách số lượng gạo ứng với tên gạo");
+            Console.WriteLine("Câu 3: Danh sách số lượng gạo ứng với tên gạo");
             var result = from r in rices
                          join rc in riceCategories on r.getCategoryId() equals rc.getId()
                          join rnd in receptNoteDetails on r.getId() equals rnd.getRiceID()
@@ -247,15 +276,14 @@ namespace RiceStore
             foreach (var item in test)
             {
                 Console.WriteLine("Tên gạo: " + item.RiceName);
-                Console.WriteLine("Số lượng: " + item.RiceQuantity + " tấn.");
+                Console.WriteLine("Số lượng: " + item.RiceQuantity + " kg.");
             }
             
         }
 
         public static void cau4()
         {
-            //tính tổng số tiền mà mối nhân viên bán được
-            Console.WriteLine("Tổng số tiền mà mỗi nhân viên bán được");
+            Console.WriteLine("Câu 4: Tổng số tiền mà mỗi nhân viên bán được và nhân viên có số tiền cao nhất");
             var result = from b in bills
                          join bd in billDetails on b.getID() equals bd.getBillID()
                          join r in rices on bd.getRiceID() equals r.getId()
@@ -279,15 +307,23 @@ namespace RiceStore
                 Console.WriteLine("Tên nhân viên: " + item.StaffName);
                 Console.WriteLine("Tổng số tiền: " + item.Total + " đồng.");
             }
+            var max = test.Max(x => x.Total);
+            foreach (var item in test)
+            {
+                if (item.Total == max)
+                {
+                    Console.WriteLine("Nhân viên có số tiền bán được cao nhất: " + item.StaffName);
+                }
+            }
         }
 
         public static void cau5()
         {
-            //tinh tổng số lượng gạo và số tiền mà từng nhà cung cấp đã cung cấp hàng
-            Console.WriteLine("Tổng số lượng gạo và số tiền mà từng nhà cung cấp đã cung cấp hàng");
+            Console.WriteLine("Câu 5: Danh sách số lượng gạo và tổng số tiền của từng nhà cung cấp đã cung cấp và nhà cung cấp có số tiền cao nhất");
             var result = from r in rices
-                         join s in supliers on r.getSupplierId() equals s.getId()
                          join rnd in receptNoteDetails on r.getId() equals rnd.getRiceID()
+                         join rn in receptNotes on rnd.getReceptNoteID() equals rn.getId()
+                         join s in supliers on rn.getSuplierID() equals s.getId()
                          select new
                          {
                              SuplierName = s.getName(),
@@ -300,15 +336,238 @@ namespace RiceStore
                               select new
                               {
                              SuplierName = g.Key,
-                             TotalQuantity = g.Sum(x => x.RiceQuantity),
-                             TotalPrice = g.Sum(x => x.RiceQuantity * x.RicePrice)
+                             RiceQuantity = g.Sum(x => x.RiceQuantity),
+                             Total = g.Sum(x => x.RiceQuantity * x.RicePrice)
                               };
             foreach (var item in test)
             {
                 Console.WriteLine("Tên nhà cung cấp: " + item.SuplierName);
-                Console.WriteLine("Tổng số lượng: " + item.TotalQuantity + " tấn.");
-                Console.WriteLine("Tổng số tiền: " + item.TotalPrice + " đồng.");
+                Console.WriteLine("Số lượng gạo: " + item.RiceQuantity + " kg.");
+                Console.WriteLine("Tổng số tiền: " + item.Total + " đồng.");
             }
+            var max = test.Max(x => x.Total);
+            foreach (var item in test)
+            {
+                if (item.Total == max)
+                {
+                    Console.WriteLine("Nhà cung cấp có tổng số tiền cao nhất: " + item.SuplierName);
+                }
+            }
+        }
+
+        public static void cau6()
+        {
+            Console.WriteLine("Câu 6: Danh sách số lượng gạo tồn kho lớn hơn 100 ");
+            var result = from r in rices
+                         join rc in riceCategories on r.getCategoryId() equals rc.getId()
+                         join rnd in receptNoteDetails on r.getId() equals rnd.getRiceID()
+                         select new
+                         {
+                             RiceName = r.getName(),
+                             RiceCategoryName = rc.getName(),
+                             RiceQuantity = rnd.getQuantity()
+                         };
+            foreach (var item in result)
+            {
+                if (item.RiceQuantity > 100)
+                {
+                    Console.WriteLine("Tên gạo: " + item.RiceName);
+                    Console.WriteLine("Loại gạo: " + item.RiceCategoryName);
+                    Console.WriteLine("Số lượng gạo: " + item.RiceQuantity + " kg.");
+                }
+            }
+        }
+
+        public static void cau7()
+        {
+            Console.WriteLine(" Câu 7: Danh sách khách hàng đã mua gạo và số lượng gạo mà khách hàng đó đã mua");
+            var result = from c in customers
+                         join b in bills on c.getId() equals b.getCustomerID()
+                         join bd in billDetails on b.getID() equals bd.getBillID()
+                         join r in rices on bd.getRiceID() equals r.getId()
+                         select new
+                         {
+                             CustomerName = c.getName(),
+                             RiceName = r.getName(),
+                             RiceCaegory = r.getCategoryId(),
+                             RiceQuantity = bd.getQuantity()
+                         };
+            var test = from kq in result
+                       group kq by kq.CustomerName into g
+                       select new
+                       {
+                           CustomerName = g.Key,
+                           RiceName = g.Select(x => x.RiceName).Distinct(),
+                           RiceCategory = g.Select(x => x.RiceCaegory).Distinct(),
+                           RiceQuantity = g.Sum(x => x.RiceQuantity)
+                       };
+            foreach (var item in test)
+            {
+                Console.WriteLine("Tên khách hàng: " + item.CustomerName);
+                Console.WriteLine("Số lượng gạo đã mua: " + item.RiceQuantity + " kg.");
+                foreach (var s in item.RiceName)
+                {
+                    Console.WriteLine("Tên gạo: " + s);
+                }
+                foreach (var s in item.RiceCategory)
+                {
+                    foreach (var r in riceCategories)
+                    {
+                        if (s == r.getId())
+                        {
+                            Console.WriteLine("Loại gạo: " + r.getName());
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void cau8()
+        {
+            Console.WriteLine("Câu 8: Tính tổng số liền ở mỗi hóa đơn và in ra hóa đơn có số lượng tiền lớn nhất");
+            var result = from b in bills
+                         join bd in billDetails on b.getID() equals bd.getBillID()
+                         join r in rices on bd.getRiceID() equals r.getId()
+                         select new
+                         {
+                             BillID = b.getID(),
+                             RiceName = r.getName(),
+                             RiceQuantity = bd.getQuantity(),
+                             RicePrice = r.getUnitPrice()
+                         };
+            var test = from kq in result
+                       group kq by kq.BillID into g
+                          select new
+                          {
+                            BillID = g.Key,
+                            Total = g.Sum(x => x.RiceQuantity * x.RicePrice)
+                          };
+            foreach (var item in test)
+            {
+                Console.WriteLine("Mã hóa đơn: " + item.BillID);
+                Console.WriteLine("Tổng số tiền: " + item.Total + " đồng.");
+            }
+            var max = test.Max(x => x.Total);
+            foreach (var item in test)
+            {
+                if (item.Total == max)
+                {
+                    Console.WriteLine("Hóa đơn có số lượng tiền lớn nhất: " + item.BillID);
+                }
+            }
+        }
+
+        public static void cau9()
+        {
+            Console.WriteLine("Câu 9: Tính tổng số tiền của mỗi phiếu nhập và in ra nhà cung cấp được nhập nhiều hàng nhất");
+            var result = from rn in receptNotes
+                         join rnd in receptNoteDetails on rn.getId() equals rnd.getReceptNoteID()
+                         join r in rices on rnd.getRiceID() equals r.getId()
+                         select new
+                         {
+                             ReceptNoteID = rn.getId(),
+                             RiceName = r.getName(),
+                             RiceQuantity = rnd.getQuantity(),
+                             RicePrice = rnd.getUnitPrice()
+                         };
+            var test = from kq in result
+                       group kq by kq.ReceptNoteID into g
+                              select new
+                              {
+                             ReceptNoteID = g.Key,
+                             QuantityTotal = g.Sum(x => x.RiceQuantity),
+                             Total = g.Sum(x => x.RiceQuantity * x.RicePrice)
+                              };
+            foreach (var item in test)
+            {
+                Console.WriteLine("Mã phiếu nhập: " + item.ReceptNoteID);
+                Console.WriteLine("Tổng số tiền: " + item.Total + " đồng.");
+            }
+            var max = test.Max(x => x.QuantityTotal);
+            foreach (var item in test)
+            {
+                if (item.QuantityTotal == max)
+                {
+                    foreach (var s in supliers)
+                    {
+                        if (s.getId() == receptNotes.Find(x => x.getId() == item.ReceptNoteID).getSuplierID())
+                        {
+                            Console.WriteLine("Nhà cung cấp có được nhập nhiều hàng nhất: " + s.getName());
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void cau10()
+        {
+            Console.WriteLine("Câu 10: Tính tỷ lệ % số lượng gạo nhập vào mà có chất lượng không đảm bảo đồng thời in ra danh sách các nhà cung cấp có tỷ lệ % số lượng gạo nhập vào mà có chất lượng không đảm bảo cao nhất");
+            var result = from r in rices
+                         join rnd in receptNoteDetails on r.getId() equals rnd.getRiceID()
+                         select new
+                         {
+                             RiceName = r.getName(),
+                             RiceQuantity = rnd.getQuantity()
+                         };
+            var test = from kq in result
+                       group kq by kq.RiceName into g
+                              select new
+                              {
+                             RiceName = g.Key,
+                             RiceQuantity = g.Sum(x => x.RiceQuantity)
+                              };
+            var result1 = from r in rices
+                          join rnd in receptNoteDetails on r.getId() equals rnd.getRiceID()
+                          join rn in receptNotes on rnd.getReceptNoteID() equals rn.getId()
+                          where rn.getMoreInfo() == "Không Đảm bảo chất lượng"
+                          select new
+                          {
+                              RiceName = r.getName(),
+                              RiceQuantity = rnd.getQuantity()
+                          };
+            var test1 = from kq in result1
+                        group kq by kq.RiceName into g
+                              select new
+                              {
+                             RiceName = g.Key,
+                             RiceQuantity = g.Sum(x => x.RiceQuantity)
+                              };
+            var result2 = from t in test
+                          join t1 in test1 on t.RiceName equals t1.RiceName
+                          select new
+                          {
+                              RiceName = t.RiceName,
+                              RiceQuantity = t.RiceQuantity,
+                              RiceQuantity1 = t1.RiceQuantity
+                          };
+            var test2 = from kq in result2
+                        select new
+                        {
+                            RiceName = kq.RiceName,
+                            RiceQuantity = kq.RiceQuantity1,
+                            RiceQuantity1 = kq.RiceQuantity,
+                            Percent = (kq.RiceQuantity1 / kq.RiceQuantity) * 100
+                        };
+            foreach (var item in test2)
+            {
+                Console.WriteLine("Tên gạo: " + item.RiceName);
+                Console.WriteLine("Tỷ lệ % số lượng gạo nhập vào mà có chất lượng không đảm bảo: " + item.Percent + "%.");
+            }
+            var max = test2.Max(x => x.Percent);
+            foreach (var item in test2)
+            {
+                if (item.Percent == max)
+                {
+                    foreach (var s in supliers)
+                    {
+                        if (s.getId() == rices.Find(x => x.getName() == item.RiceName).getSupplierId())
+                        {
+                            Console.WriteLine("Nhà cung cấp có tỷ lệ % số lượng gạo nhập vào mà có chất lượng không đảm bảo cao nhất: " + s.getName());
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

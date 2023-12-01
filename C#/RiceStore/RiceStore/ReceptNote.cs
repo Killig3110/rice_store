@@ -8,7 +8,6 @@ namespace RiceStore
 {
     public class ReceptNote
     {
-        //generate constructor with ReceptNote (id, date, moreInfo, suplierID, staffID)
         private string id;
         private DateTime date;
         private string moreInfo;

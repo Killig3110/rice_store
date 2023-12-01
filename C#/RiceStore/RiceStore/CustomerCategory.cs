@@ -17,20 +17,20 @@ namespace RiceStore
             this.name = name;
         }
 
-        private string getId()
+        public string getId()
         {
             return id;
         }
-        private void setId(string id)
+        public void setId(string id)
         {
             this.id = id;
         }
 
-        private string getName()
+        public string getName()
         {
             return name;
         }
-        private void setName(string name)
+        public void setName(string name)
         {
             this.name = name;
         }

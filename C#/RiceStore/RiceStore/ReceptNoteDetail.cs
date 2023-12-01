@@ -15,12 +15,21 @@ namespace RiceStore
         private string riceID;
         private Rice rice;
 
-        public ReceptNoteDetail(int unitPrice, int quantity, string receptNoteID, string riceID)
+        public ReceptNoteDetail(int quantity, int unitPrice, string receptNoteID, string riceID)
         {
-            this.unitPrice = unitPrice;
             this.quantity = quantity;
+            this.unitPrice = unitPrice;
             this.receptNoteID = receptNoteID;
             this.riceID = riceID;
+        }
+
+        public double getQuantity()
+        {
+            return quantity;
+        }
+        public void setQuantity(int quantity)
+        {
+            this.quantity = quantity;
         }
 
         public double getUnitPrice()
@@ -31,14 +40,7 @@ namespace RiceStore
         {
             this.unitPrice = unitPrice;
         }
-        public double getQuantity()
-        {
-            return quantity;
-        }
-        public void setQuantity(int quantity)
-        {
-            this.quantity = quantity;
-        }
+
         public string getReceptNoteID()
         {
             return receptNoteID;

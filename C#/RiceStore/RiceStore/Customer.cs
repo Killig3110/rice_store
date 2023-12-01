@@ -23,29 +23,29 @@ namespace RiceStore
             this.categoryID = categoryID;
         }
 
-        private string getId()
+        public string getId()
         {
             return id;
         }
-        private void setId(string id)
+        public void setId(string id)
         {
             this.id = id;
         }
 
-        private string getName()
+        public string getName()
         {
             return name;
         }
-        private void setName(string name)
+        public void setName(string name)
         {
             this.name = name;
         }
 
-        private bool getGender()
+        public bool getGender()
         {
             return gender;
         }
-        private void setGender(bool gender)
+        public void setGender(bool gender)
         {
             this.gender = gender;
         }
@@ -60,11 +60,11 @@ namespace RiceStore
             this.categoryID = categoryID;
         }
 
-        private CustomerCategory getCustomerCategory()
+        public CustomerCategory getCustomerCategory()
         {
             return customerCategory;
         }
-        private void setCustomerCategory(CustomerCategory customerCategory)
+        public void setCustomerCategory(CustomerCategory customerCategory)
         {
             this.customerCategory = customerCategory;
         }   
