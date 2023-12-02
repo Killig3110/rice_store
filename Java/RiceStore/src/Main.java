@@ -50,6 +50,8 @@ public class Main {
         System.out.println("_________________________");
         cau10();
         System.out.println("_________________________");
+        cauHoiThem();
+        System.out.println("_________________________");
     }
 
     static void initData() {
@@ -260,12 +262,11 @@ public class Main {
     }
 
     static void cau2() {
-        //In ra danh sách các gạo có số lượng tồn kho lớn hơn 100 kg.
         System.out.println("In ra danh sách các gạo có số lượng tồn kho lớn hơn 100 kg.");
         List<Rice> list = rices.stream()
                 .filter(rice -> receiptNoteDetails.stream()
                         .filter(receiptNoteDetail -> receiptNoteDetail.getRiceID() == rice.getId())
-                        .mapToDouble(receiptNoteDetail -> receiptNoteDetail.getQuantity())
+                        .mapToInt(receiptNoteDetail -> (int) receiptNoteDetail.getQuantity())
                         .sum() - billDetails.stream()
                         .filter(billDetail -> billDetail.getRiceID() == rice.getId())
                         .mapToInt(billDetail -> billDetail.getQuantity())
@@ -551,4 +552,72 @@ public class Main {
                 .sum() + " kg.");
     }
 
+    static void cauHoiThem() {
+        //Liệt kê danh sách gạo mà từng khách hàng mua nhiều nhất trong những hóa đơn mua gạo mà họ đã mua.
+        System.out.println("Liệt kê danh sách gạo mà từng khách hàng mua nhiều nhất trong những hóa đơn mua gạo mà họ đã mua.");
+        for (Customer item : customers) {
+            ArrayList<Bill> bill = bills.stream()
+                    .filter(bill1 -> bill1.getCustomerID() == item.getId())
+                    .collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<BillDetail> billDetail = billDetails.stream()
+                    .filter(billDetail1 -> bill.stream()
+                            .anyMatch(bill1 -> bill1.getId() == billDetail1.getBillID()))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<Rice> rice = rices.stream()
+                    .filter(rice1 -> billDetail.stream()
+                            .anyMatch(billDetail1 -> billDetail1.getRiceID() == rice1.getId()))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            System.out.println("Khách hàng " + item.getName() + " mua nhiều nhất là: " + rice.stream()
+                    .max((o1, o2) -> {
+                        int result = 0;
+                        int total1 = 0;
+                        int total2 = 0;
+                        for (BillDetail billDetail1 : billDetail) {
+                            if (billDetail1.getRiceID() == o1.getId()) {
+                                total1 += billDetail1.getQuantity();
+                            }
+                            if (billDetail1.getRiceID() == o2.getId()) {
+                                total2 += billDetail1.getQuantity();
+                            }
+                        }
+                        if (total1 > total2) {
+                            result = 1;
+                        } else if (total1 < total2) {
+                            result = -1;
+                        } else {
+                            result = 0;
+                        }
+                        return result;
+                    })
+                    .orElseThrow()
+                    .getName() + " với số lượng là: " + billDetail.stream()
+                    .filter(billDetail1 -> billDetail1.getRiceID() == rice.stream()
+                            .max((o1, o2) -> {
+                                int result = 0;
+                                int total1 = 0;
+                                int total2 = 0;
+                                for (BillDetail billDetail2 : billDetail) {
+                                    if (billDetail2.getRiceID() == o1.getId()) {
+                                        total1 += billDetail2.getQuantity();
+                                    }
+                                    if (billDetail2.getRiceID() == o2.getId()) {
+                                        total2 += billDetail2.getQuantity();
+                                    }
+                                }
+                                if (total1 > total2) {
+                                    result = 1;
+                                } else if (total1 < total2) {
+                                    result = -1;
+                                } else {
+                                    result = 0;
+                                }
+                                return result;
+                            })
+                            .orElseThrow()
+                            .getId())
+                    .mapToInt(BillDetail::getQuantity)
+                    .sum() + " kg.");
+
+        }
+    }
 }

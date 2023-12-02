@@ -51,6 +51,8 @@ namespace RiceStore
             Console.WriteLine("_____________________________________");
             cau10();
             Console.WriteLine("_____________________________________");
+            cauhoiThem();
+            Console.WriteLine("_____________________________________");
             Console.ReadLine();
 
         }
@@ -305,13 +307,13 @@ namespace RiceStore
                              RiceName = r.getName(),
                              RiceQuantity = rnd.getQuantity()
                          };
-            var test = from kq in result
-                       group kq by kq.RiceName into g
-                              select new
-                              {
-                             RiceName = g.Key,
-                             RiceQuantity = g.Sum(x => x.RiceQuantity)
-                              };
+                var test = from kq in result
+                           group kq by kq.RiceName into g
+                                  select new
+                                  {
+                                 RiceName = g.Key,
+                                 RiceQuantity = g.Sum(x => x.RiceQuantity)
+                                  };
             foreach (var item in test)
             {
                 Console.WriteLine("Tên gạo: " + item.RiceName);
@@ -616,5 +618,41 @@ namespace RiceStore
                 }
             }
         }
+
+        public static void cauhoiThem() 
+        {
+            Console.WriteLine("Câu hỏi thêm: Tìm và in ra tên khách hàng và tên gạo mà khách hàng đó mua nhiều nhất và số lượng gạo đó");
+            var result = from c in customers
+                         join b in bills on c.getId() equals b.getCustomerID()
+                         join bd in billDetails on b.getID() equals bd.getBillID()
+                         join r in rices on bd.getRiceID() equals r.getId()
+                         select new
+                         {
+                             CustomerName = c.getName(),
+                             RiceName = r.getName(),
+                             RiceQuantity = bd.getQuantity()
+                         };
+            var test = from kq in result
+                       group kq by kq.CustomerName into g
+                          select new
+                          {
+                            CustomerName = g.Key,
+                            RiceName = g.Select(x => x.RiceName),
+                            RiceQuantity = g.Select(x => x.RiceQuantity)
+                          };
+            foreach (var item in test)
+            {
+                Console.WriteLine("Tên khách hàng: " + item.CustomerName);
+                Console.Write("Tên gạo: ");
+                int max = item.RiceQuantity.Max();
+                int index = item.RiceQuantity.ToList().IndexOf(max);
+                Console.WriteLine(item.RiceName.ToList()[index]);
+                Console.WriteLine("Số lượng gạo: " + max + " kg.");
+            }
+        }
+    }
+
+    internal class list<T>
+    {
     }
 }
